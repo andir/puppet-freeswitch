@@ -6,14 +6,14 @@ class freeswitch::repo {
 
   include apt
 
-  apt::key {'freeswitch-key':
-    id => '20B06EE621AB150D40F6079FD76EDC7725E010CF'
-  }
   apt::source { 'freeswitch-repo':
     comment  => 'FreeSWITCH Package Repository',
-    location => 'https://files.freeswitch.org/repo/deb/freeswitch-1.6',
+    location => 'https://files.freeswitch.org/repo/deb/freeswitch-1.8',
+    key      => {
+      server => 'hpks.pooks.sks-keyservers.net',
+      id     =>'5E098B3D18406E8E19543709BD3189F5A2B57698',
+    },
     repos    => $::lsbdistcodename,
-    require  => Apt::Key['freeswitch-key'],
   }
 
 }

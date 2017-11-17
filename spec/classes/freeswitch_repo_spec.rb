@@ -13,6 +13,5 @@ describe 'freeswitch::repo', :type => :class do
     end
     it { should compile }
     it { is_expected.to contain_apt__source('freeswitch-repo').with(ensure: 'present') }
-    it { is_expected.to contain_apt__key('freeswitch-key').with(ensure: 'present') }
   end
 end
